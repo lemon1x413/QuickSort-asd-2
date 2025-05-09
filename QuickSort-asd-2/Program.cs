@@ -1,6 +1,5 @@
 ﻿namespace QuickSort_asd_2;
 
-
 class Program
 {
     static int compares = 0;
@@ -12,8 +11,10 @@ class Program
             if (A[i] > A[i + 1])
                 return false;
         }
+
         return true;
     }
+
     static void QuickSort(int[] A, int left, int right)
     {
         if (left < right)
@@ -65,7 +66,7 @@ class Program
         int a = A[left];
         int b = A[(left + right) / 2];
         int c = A[right];
-        
+
         if ((a <= b && b <= c) || (c <= b && b <= a))
             return (left + right) / 2;
         if ((b <= a && a <= c) || (c <= a && a <= b))
@@ -92,7 +93,7 @@ class Program
                     break;
                 }
             }
-            
+
             A[j + 1] = key;
         }
     }
@@ -124,12 +125,11 @@ class Program
         compares++;
         if (A[left] > A[left + 1])
             (A[left], A[left + 1]) = (A[left + 1], A[left]);
-        
+
         int a = left + 2, b = left + 2, c = right - 1, d = right - 1;
         int p = A[left], q = A[left + 1], r = A[right];
         while (b <= c)
         {
-            
             while (A[b] < q && b <= c)
             {
                 compares++;
@@ -142,6 +142,7 @@ class Program
 
                 b++;
             }
+
             while (A[c] > q && b <= c)
             {
                 compares++;
@@ -181,7 +182,6 @@ class Program
                     compares++;
                     if (A[c] < p)
                     {
-                        
                         (A[a], A[b]) = (A[b], A[a]);
                         (A[a], A[c]) = (A[c], A[a]);
                         a++;
@@ -194,6 +194,7 @@ class Program
                 }
             }
         }
+
         compares++;
         a--;
         b--;
@@ -236,7 +237,7 @@ class Program
                 Console.WriteLine(a);
             }
         }
-        
+
         compares = 0;
         QuickSortMedian(B, 0, B.Length - 1);
         int comparesMedian = compares;
